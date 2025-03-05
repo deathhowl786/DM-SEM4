@@ -1,6 +1,11 @@
-package lib;
+package lib; // Enter your package name
+
+//Copy paste equations class here if dont want to make two diff files.
 
 
+//make sure file name is same as class name here
+//example Main.java must have Main class
+// Simplex.java must have Simplex class
 public class Main {
 
 	public static void main(String[] args) {
@@ -22,11 +27,11 @@ public class Main {
 		
 		
 		//417.
-		Equation z = new Equation(new double[]{2, -1, 1, 0, 0, 0}, 0);
-		Equation a = new Equation(new double[]{3, 1, 1, 1, 0, 0}, 60);
-		Equation b = new Equation(new double[]{1, -1, 2, 0, 1, 0}, 10);
-		Equation c = new Equation(new double[]{1, 1, -1, 0, 0, 1}, 20);
-		Equation[] eqs = {a, b, c};
+//		Equation z = new Equation(new double[]{2, -1, 1, 0, 0, 0}, 0);
+//		Equation a = new Equation(new double[]{3, 1, 1, 1, 0, 0}, 60);
+//		Equation b = new Equation(new double[]{1, -1, 2, 0, 1, 0}, 10);
+//		Equation c = new Equation(new double[]{1, 1, -1, 0, 0, 1}, 20);
+//		Equation[] eqs = {a, b, c};
 		
 		//418.
 //		Equation z = new Equation(new double[]{3, 2, 5, 0, 0, 0}, 0);
@@ -42,6 +47,13 @@ public class Main {
 //		Equation b = new Equation(new double[]{2, 0, 2, 1, 0, 1, 0}, 60);
 //		Equation c = new Equation(new double[]{3, 3, 1, 1, 0, 0, 1}, 80);
 //		Equation[] eqs = {a, b, c};
+		
+		//421.
+		Equation z = new Equation(new double[]{4, 5, 9, 11, 0, 0, 0}, 0);
+		Equation a = new Equation(new double[]{1, 1, 1, 1, 1, 0, 0}, 15);
+		Equation b = new Equation(new double[]{7, 5, 3, 2, 0, 1, 0}, 120);
+		Equation c = new Equation(new double[]{3, 5, 10, 15, 0, 0, 1}, 100);
+		Equation[] eqs = {a, b, c};
 		
 		//18/12/24
 //		Equation z = new Equation(new double[]{3, 5, 4, 0, 0, 0}, 0);
@@ -119,6 +131,10 @@ public class Main {
 				}
 				continue;
 			}
+			
+			if(iteration > 9) {
+				break;
+			}
 		}while(pivotalColumnIndex!=-1);
 		
 		
@@ -168,7 +184,7 @@ public class Main {
 		
 		double[] temp = new double[eqs[0].constants.length];
 		for(int i = 0; i < eqs[0].constants.length; i++) {
-			int sum = 0;
+			double sum = 0;
 			for(int j = 0; j < eqs.length; j++) {
 				sum += eqs[j].constants[i] * slacks[j];				
 			}		
